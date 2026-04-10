@@ -22,7 +22,9 @@ public class RestauranteTest {
         Plato plato2 = Menu.MILANESA;
         Bebida bebida1 = Menu.PEPSI_BOTELLA;
 
-        Pedido p1 = new Pedido(cl1.getNombre(), plato1, plato2, bebida1);
+        Pedido p1 = new Pedido(cl1.getNombre(),
+                new EnDiscoRegistroDePago("C:/Users/Rodrigo/OneDrive/Desktop/TextDoc2026_2.txt")
+                ,plato1, plato2, bebida1);
         cl1.pagarPedidoYPropina(p1, Propina.PROPINA_5porCiento);
 
         System.out.println(tarjeta1.toString());

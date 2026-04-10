@@ -5,6 +5,8 @@ import Ejer2.Items.ItemMenu;
 import Ejer2.Items.Plato;
 import Ejer2.Tarjeta.TarjetaCredito;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +21,11 @@ public class Pedido {
     private float precioTotal;
 
     private boolean pagado;
+    private RegistroDePago registro;
 
-    public Pedido(String nombreTitular, ItemMenu... items) {
+    private LocalDateTime fechaPago;
+
+    public Pedido(String nombreTitular, RegistroDePago registro, ItemMenu... items) {
         this.nroPedido = (int) (Math.random() * 100);
         this.nombreTitular = nombreTitular;
         this.bebidas = new ArrayList<>();
@@ -28,6 +33,8 @@ public class Pedido {
 
         List.of(items).forEach(item -> item.agregarAPedido(this));
         calcularPrecioTotal();
+
+        this.registro = registro;
     }
 
     private void calcularPrecioTotal(){
@@ -54,6 +61,12 @@ public class Pedido {
 
         tarjeta.pagar(pagoSumadoPropina);
         pagado = true;
+
+        this.fechaPago = LocalDateTime.now();
+
+        String registroEnTexto = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(fechaPago)
+                + "||" + String.format("%.2f", pagoSumadoPropina) + "\n";
+        this.registro.registrar(registroEnTexto);
     }
 
     private static float aplicarPropina(Propina propina, float pagoConDescuento) {
