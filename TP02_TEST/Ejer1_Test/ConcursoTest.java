@@ -1,6 +1,7 @@
 package Ejer1_Test;
 
 import Ejer1.Concurso;
+import Ejer1.EnDiscoRegistroDeInscripcion;
 import Ejer1.Inscripcion;
 import Ejer1.Participante;
 import org.junit.Assert;
@@ -11,9 +12,12 @@ public class ConcursoTest {
 
     @Test
     void participanteInscrito(){
-        Concurso concurso1 = new Concurso(
+        Concurso concurso1 = new Concurso(101,
                 LocalDate.of(2026, 3, 20),
-                LocalDate.of(2026,3,29));
+                LocalDate.of(2026,4,29),
+                new EnDiscoRegistroDeInscripcion(
+                        "C:/Users/Rodrigo/OneDrive/Desktop/TextDoc2026_1.txt")
+        );
 
         Participante participante = new Participante("Rodrigo Quichan", "43138364");
         Inscripcion inscripcion1 = new Inscripcion(participante, LocalDate.now());
@@ -25,9 +29,11 @@ public class ConcursoTest {
 
     @Test
     void participanteNoInscrito(){
-        Concurso concurso1 = new Concurso(
+        Concurso concurso1 = new Concurso(102,
                 LocalDate.of(2026, 3, 20),
-                LocalDate.of(2026,3,29));
+                LocalDate.of(2026,4,29),
+                new EnDiscoRegistroDeInscripcion(
+                        "C:/Users/Rodrigo/OneDrive/Desktop/TextDoc2026_1.txt"));
 
         Participante part1 = new Participante("Rodrigo Quichan", "43138364");
         Participante part2 = new Participante("Daniel Correa", "20000000");
@@ -41,9 +47,11 @@ public class ConcursoTest {
 
     @Test
     void puntajeNuloParticipante(){
-        Concurso concurso1 = new Concurso(
+        Concurso concurso1 = new Concurso(103,
                 LocalDate.of(2026, 3, 20),
-                LocalDate.of(2026,3,29));
+                LocalDate.of(2026,4,29),
+                new EnDiscoRegistroDeInscripcion(
+                        "C:/Users/Rodrigo/OneDrive/Desktop/TextDoc2026_1.txt"));
 
         Participante participante = new Participante("Rodrigo Quichan", "43138364");
         Inscripcion inscripcion1 = new Inscripcion(participante, LocalDate.now());
@@ -61,9 +69,11 @@ public class ConcursoTest {
 
     @Test
     void puntaje10Participante(){
-        Concurso concurso1 = new Concurso(
+        Concurso concurso1 = new Concurso(104,
                 LocalDate.now(),
-                LocalDate.of(2026,3,29));
+                LocalDate.of(2026,4,29),
+                new EnDiscoRegistroDeInscripcion(
+                        "C:/Users/Rodrigo/OneDrive/Desktop/TextDoc2026_1.txt"));
 
         Participante participante = new Participante("Rodrigo Quichan", "43138364");
         Inscripcion inscripcion1 = new Inscripcion(participante, LocalDate.now());
