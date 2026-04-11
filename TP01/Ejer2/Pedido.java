@@ -5,6 +5,7 @@ import Ejer2.Items.ItemMenu;
 import Ejer2.Items.Plato;
 import Ejer2.Tarjeta.TarjetaCredito;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -22,8 +23,9 @@ public class Pedido {
 
     private boolean pagado;
     private RegistroDePago registro;
-
     private LocalDateTime fechaPago;
+
+    private TarjetaCredito tarjetaUsada;
 
     public Pedido(String nombreTitular, RegistroDePago registro, ItemMenu... items) {
         this.nroPedido = (int) (Math.random() * 100);
@@ -51,6 +53,7 @@ public class Pedido {
     }
 
     public void recibirPago(TarjetaCredito tarjeta, Propina propina){
+        this.tarjetaUsada = tarjeta;
         System.out.println("Pago: " + precioTotal);
 
         float pagoConDescuento = tarjeta.aplicarDescuento(precioTotalBebidas, precioTotalPlatos);
@@ -73,4 +76,16 @@ public class Pedido {
         return pagoConDescuento + (pagoConDescuento * propina.getMontoElegido());
     }
 
+    public int getNroPedido() {
+        return nroPedido;
+    }
+    public LocalDate getFechaPago() {
+        return fechaPago.toLocalDate();
+    }
+    public float getPrecioTotal() {
+        return precioTotal;
+    }
+    public String tarjetaCreditoUsada(){
+        return tarjetaUsada.tipo();
+    }
 }

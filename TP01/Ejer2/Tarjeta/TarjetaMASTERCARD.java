@@ -34,6 +34,11 @@ public class TarjetaMASTERCARD implements TarjetaCredito {
     }
 
     @Override
+    public String tipo() {
+        return "MASTERCARD";
+    }
+
+    @Override
     public String toString() {
         return "TarjetaMASTERCARD {" +
                 "NRO: " + nroTarjeta +

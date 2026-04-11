@@ -30,6 +30,11 @@ public class TarjetaVIEDMA implements TarjetaCredito {
     }
 
     @Override
+    public String tipo() {
+        return "VIEDMA";
+    }
+
+    @Override
     public String toString() {
         return "TarjetaVIEDMA {" +
                 "NRO: " + nroTarjeta +

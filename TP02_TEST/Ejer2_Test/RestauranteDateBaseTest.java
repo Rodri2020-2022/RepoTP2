@@ -1,17 +1,22 @@
 package Ejer2_Test;
 
-import Ejer2.*;
-import Ejer2.Items.Bebida;
 import Ejer2.Comensal;
+import Ejer2.EnDiscoRegistroDePago;
+import Ejer2.Items.Bebida;
 import Ejer2.Items.Plato;
 import Ejer2.Menu.Menu;
+import Ejer2.Pedido;
+import Ejer2.Propina;
 import Ejer2.Tarjeta.TarjetaCredito;
 import Ejer2.Tarjeta.TarjetaMASTERCARD;
+import Ejer3.RegistroPedidosDAO;
 import org.testng.annotations.Test;
 
-public class RestauranteTest {
+import java.sql.SQLException;
+
+public class RestauranteDateBaseTest {
     @Test
-    void main(){
+    void main() throws SQLException {
         TarjetaCredito tarjeta1 = new TarjetaMASTERCARD(1000100010001000L,
                 70000.20f);
         System.out.println(tarjeta1.toString());
@@ -30,5 +35,7 @@ public class RestauranteTest {
 
         System.out.println(tarjeta1.toString());
 
+        RegistroPedidosDAO registroPedidoDAO = new RegistroPedidosDAO();
+        registroPedidoDAO.create(p1);
     }
 }

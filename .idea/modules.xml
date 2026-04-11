@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Concursos2026.iml" filepath="$PROJECT_DIR$/Concursos2026.iml" />
+      <module fileurl="file://$PROJECT_DIR$/conexion-mysql.iml" filepath="$PROJECT_DIR$/conexion-mysql.iml" />
     </modules>
   </component>
 </project>

@@ -34,6 +34,11 @@ public class TarjetaCOMARCAPLUS implements TarjetaCredito {
     }
 
     @Override
+    public String tipo() {
+        return "COMARCA_PLUS";
+    }
+
+    @Override
     public String toString() {
         return "TarjetaCOMARCAPLUS {" +
                 "NRO: " + nroTarjeta +

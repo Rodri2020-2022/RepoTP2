@@ -33,6 +33,11 @@ public class TarjetaVISA implements TarjetaCredito {
     }
 
     @Override
+    public String tipo() {
+        return "VISA";
+    }
+
+    @Override
     public String toString() {
         return "TarjetaVISA {" +
                 "NRO: " + nroTarjeta +
@@ -40,4 +45,6 @@ public class TarjetaVISA implements TarjetaCredito {
                 ", Saldo =" + String.format("%.2f", saldoDisponible) +
                 "}";
     }
+
+
 }

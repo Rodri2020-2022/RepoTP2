@@ -15,11 +15,14 @@ public class EnDiscoRegistroDeInscripcion implements RegistroDeInscripcion {
 
     @Override
     public void registrar(String registro) {
-        try{
-            Files.write(Paths.get(this.ruta),
+        try {
+            Files.write(
+                    Paths.get(this.ruta),
                     registro.getBytes(),
-                    StandardOpenOption.APPEND);
-        }catch(IOException e){
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND
+            );
+        } catch (IOException e) {
             throw new RuntimeException("No se pudo persistir...", e);
         }
     }
