@@ -10,6 +10,7 @@ import Ejer2.Tarjeta.TarjetaMASTERCARD;
 import org.testng.annotations.Test;
 
 public class RestauranteTest {
+    String rutaEjemplo = "TP02/TextDoc2026_2.txt";
     @Test
     void main(){
         TarjetaCredito tarjeta1 = new TarjetaMASTERCARD(1000100010001000L,
@@ -24,7 +25,7 @@ public class RestauranteTest {
         Bebida bebida1 = Menu.PEPSI_BOTELLA;
 
         Pedido p1 = new Pedido(cl1.getNombre(),
-                new EnDiscoRegistroDePago("C:/Users/Rodrigo/OneDrive/Desktop/TextDoc2026_2.txt")
+                new EnDiscoRegistroDePago(rutaEjemplo)
                 ,plato1, plato2, bebida1);
         cl1.pagarPedidoYPropina(p1, Propina.PROPINA_5porCiento);
 

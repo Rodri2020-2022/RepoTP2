@@ -16,9 +16,12 @@ public class EnDiscoRegistroDePago implements RegistroDePago{
     @Override
     public void registrar(String registro) {
         try{
-            Files.write(Paths.get(this.ruta),
+            Files.write(
+                    Paths.get(this.ruta),
                     registro.getBytes(),
-                    StandardOpenOption.APPEND);
+                    StandardOpenOption.CREATE,
+                    StandardOpenOption.APPEND
+            );
         }catch (IOException e){
             throw new RuntimeException("No se pudo persistir...", e);
         }
